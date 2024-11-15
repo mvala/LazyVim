@@ -2,7 +2,6 @@ return {
   { "nvim-telescope/telescope-dap.nvim" },
   {
     "rcarriga/nvim-dap-ui",
-  -- stylua: ignore
     opts = {
       layouts = {
         {
@@ -53,6 +52,7 @@ return {
       { "<F6>", function() require("dap").step_over() end, desc = "Dap step over", mode = {"n"} },
       { "<F7>", function() require("dap").step_into() end, desc = "Dap step into", mode = {"n"} },
       { "<F8>", function() require("dap").step_out() end, desc = "Dap step out", mode = {"n"} },
+      { "<F10>", function() require("dapui").toggle({}) end, desc = "Dap ui toggle", mode = {"n"} },
     },
   },
 }
