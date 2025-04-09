@@ -13,20 +13,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
--- make sure that you install `kitty` (sudo dnf install kitty)
-vim.opt.clipboard = "unnamed"
-vim.g.clipboard = {
-  name = "kittyClipboard",
-  copy = {
-    ["*"] = { "kitty", "+kitten", "clipboard" },
-    ["+"] = { "kitty", "+kitten", "clipboard" },
-  },
-  paste = {
-    ["*"] = { "kitty", "+kitten", "clipboard", "--get-clipboard" },
-    ["+"] = { "kitty", "+kitten", "clipboard", "--get-clipboard" },
-  },
-  cache_enabled = 1,
-}
 
 require("lazy").setup({
   spec = {
@@ -47,7 +33,7 @@ require("lazy").setup({
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
-    notify = false, -- notify on update
+    notify = true, -- notify on update
   }, -- automatically check for plugin updates
   performance = {
     rtp = {
@@ -65,3 +51,6 @@ require("lazy").setup({
     },
   },
 })
+
+-- Custom startup
+Snacks.dim.enable()
